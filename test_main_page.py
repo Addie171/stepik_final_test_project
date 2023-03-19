@@ -11,7 +11,7 @@ class TestLoginFromMainPage:
         link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         link.click()
         # return LoginPage(browser=self.browser, url=self.browser.current_url)
-    def test_guest_can_go_to_login_page(browser):
+    def test_guest_can_go_to_login_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com"
         page = MainPage(browser, link)
         page.open()
@@ -29,8 +29,6 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
     page = ProductPage(browser, link)
     page.open()
-    #add = browser.find_element(By.CLASS_NAME, "btn-block")
-    # add.click()
     page.go_to_basket()
     basket_page = BasketPage(browser, browser.current_url)
     basket_page.should_be_empty_basket()
