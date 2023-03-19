@@ -25,16 +25,12 @@ class ProductPage(BasePage):
 
     def should_be_right_name(self):
         expected_name = self.browser.find_element(*ProductPageLocators.EXPECTED_BOOK_NAME).text
-        print('expected_name =', expected_name)
         actual_name = self.browser.find_element(*ProductPageLocators.ACTUAL_BOOK_NAME).text
-        print('actual_name =', actual_name)
         assert expected_name == actual_name, "Names are different"
 
     def should_be_right_price(self):
         expected_price = self.browser.find_element(*ProductPageLocators.EXPECTED_PRICE).text
-        print('expected_price =', expected_price)
         actual_price = self.browser.find_element(*ProductPageLocators.ACTUAL_PRICE).text
-        print('actual_price =', actual_price)
         assert expected_price == actual_price, "Prices are different"
 
     def should_not_be_success_message(self):
